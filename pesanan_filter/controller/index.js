@@ -59,28 +59,46 @@ class Controller {
         }
     }
 
-    static async paymentCreate(req, res, next) {
-        try {
-            const { totalHarga, status } = req.body
-            const { id } = req.user
-            const data = await Payment.create({ totalHarga, status, UserId: id });
-            res.status(201).json({ message: 'Payment berhasil dibuat', data })
-        } catch (error) {
-            console.log('ini error', error);
-            next(error)
-        }
-    }
+    // static async paymentCreate(req, res, next) {
+    //     try {
+    //         const { totalHarga, status } = req.body
+    //         const { id } = req.user
+    //         const data = await Payment.create({ totalHarga, status, UserId: id });
+    //         res.status(201).json({ message: 'Payment berhasil dibuat', data })
+    //     } catch (error) {
+    //         console.log('ini error', error);
+    //         next(error)
+    //     }
+    // }
 
     static async orderCreate(req, res, next) {
         try {
             const { ProdukId, qty, jumlah, PaymendId } = req.body
-            const data = await Order.create({ ProdukId, qty, jumlah, PaymendId});
+            const data = await Order.create({ ProdukId, qty, jumlah, PaymendId });
             res.status(201).json({ message: 'Order berhasil dibuat', data })
         } catch (error) {
             console.log('ini error', error);
             next(error)
         }
     }
+
+    static async paymentUpdate(req, res, next) {
+        try {
+            const { status } = req.body
+            console.log('ini id', status);
+            const { id } = req.user
+            const data = await Payment.update({ status }, {
+                where: {
+                    UserId: id
+                }
+            });
+            res.status(201).json({ message: 'Payment Status berhasil diupdate', data })
+        } catch (error) {
+            console.log('ini error', error);
+            next(error)
+        }
+    }
+
 
 }
 
