@@ -5,7 +5,7 @@ const controller = require('../controller')
 
 /* GET home page. */
 router.post('/register', controller.register);
-router.post('/register', controller.register);
+router.post('/login', controller.login);
 
 
 
