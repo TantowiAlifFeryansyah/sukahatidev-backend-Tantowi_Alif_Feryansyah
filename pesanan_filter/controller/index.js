@@ -1,4 +1,4 @@
-const { User, Brand, Produk } = require('../models')
+const { User, Brand, Produk, Payment } = require('../models')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
 
@@ -53,6 +53,18 @@ class Controller {
             const { namaProduk, klasifikasi, tipe, satuan, konstanta, harga, BrandId } = req.body
             const data = await Produk.create({ namaProduk, klasifikasi, tipe, satuan, konstanta, harga, BrandId });
             res.status(201).json({ message: 'Produk  berhasil dibuat', data })
+        } catch (error) {
+            console.log('ini error', error);
+            next(error)
+        }
+    }
+
+    static async paymentCreate(req, res, next) {
+        try {
+            const { totalHarga, status } = req.body
+            const { id } = req.user
+            const data = await Payment.create({ totalHarga, status, UserId: id });
+            res.status(201).json({ message: 'Payment  berhasil dibuat', data })
         } catch (error) {
             console.log('ini error', error);
             next(error)
