@@ -1,4 +1,4 @@
-const { User, Brand, Produk, Payment } = require('../models')
+const { User, Brand, Produk, Payment, Order } = require('../models')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
 
@@ -42,7 +42,7 @@ class Controller {
             const { namaBrand } = req.body
             const { id } = req.user
             const data = await Brand.create({ namaBrand, UserID: id });
-            res.status(201).json({ message: 'Brand  berhasil dibuat', data })
+            res.status(201).json({ message: 'Brand berhasil dibuat', data })
         } catch (error) {
             next(error)
         }
@@ -52,7 +52,7 @@ class Controller {
         try {
             const { namaProduk, klasifikasi, tipe, satuan, konstanta, harga, BrandId } = req.body
             const data = await Produk.create({ namaProduk, klasifikasi, tipe, satuan, konstanta, harga, BrandId });
-            res.status(201).json({ message: 'Produk  berhasil dibuat', data })
+            res.status(201).json({ message: 'Produk berhasil dibuat', data })
         } catch (error) {
             console.log('ini error', error);
             next(error)
@@ -64,7 +64,18 @@ class Controller {
             const { totalHarga, status } = req.body
             const { id } = req.user
             const data = await Payment.create({ totalHarga, status, UserId: id });
-            res.status(201).json({ message: 'Payment  berhasil dibuat', data })
+            res.status(201).json({ message: 'Payment berhasil dibuat', data })
+        } catch (error) {
+            console.log('ini error', error);
+            next(error)
+        }
+    }
+
+    static async orderCreate(req, res, next) {
+        try {
+            const { ProdukId, qty, jumlah, PaymendId } = req.body
+            const data = await Order.create({ ProdukId, qty, jumlah, PaymendId});
+            res.status(201).json({ message: 'Order berhasil dibuat', data })
         } catch (error) {
             console.log('ini error', error);
             next(error)
