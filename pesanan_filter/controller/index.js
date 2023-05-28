@@ -73,11 +73,33 @@ class Controller {
 
     static async orderCreate(req, res, next) {
         try {
-            const { ProdukId, qty, jumlah, PaymendId } = req.body
-            const data = await Order.create({ ProdukId, qty, jumlah, PaymendId });
+            const { ProdukId, qty } = req.body
+            const produkData = await Produk.findOne({ where: { id: ProdukId } });
+            // console.log('ini produkData', produkData);
+            const harga = produkData.dataValues.harga
+            const konstanta = produkData.dataValues.konstanta
+            let temp = 0
+            let jumlah = 0
+            if (produkData.dataValues.klasifikasi) {
+                temp = harga * qty * konstanta
+                jumlah = Math.ceil(temp)
+                // console.log('ini jumlah ada', jumlah);
+            } else {
+                temp = harga * qty
+                jumlah = Math.ceil(temp)
+                // console.log('ini jumlah ga ada', jumlah);
+            }
+            console.log('ini adalah', jumlah);
+
+            const data = await Order.create({ ProdukId, qty, jumlah });
+
+            
+
+            console.log('ini data', data);
             res.status(201).json({ message: 'Order berhasil dibuat', data })
         } catch (error) {
-            console.log('ini error', error);
+            console.log('ini error ==============================================');
+            console.log(error);
             next(error)
         }
     }

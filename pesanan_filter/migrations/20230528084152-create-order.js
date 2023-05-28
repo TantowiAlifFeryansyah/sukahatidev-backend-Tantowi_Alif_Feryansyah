@@ -25,16 +25,6 @@ module.exports = {
       jumlah: {
         type: Sequelize.INTEGER
       },
-      PaymendId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Payments",
-          key: "id"
-        },
-        onUpdate: "cascade",
-        onDelete: "cascade",
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
