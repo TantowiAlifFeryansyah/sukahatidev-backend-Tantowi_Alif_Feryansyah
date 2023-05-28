@@ -91,12 +91,16 @@ class Controller {
             }
             console.log('ini adalah', jumlah);
 
-            const data = await Order.create({ ProdukId, qty, jumlah });
+            const order = await Order.create({ ProdukId, qty, jumlah });
 
+            const { id } = req.user
+            const status = 'unpaid'
+            const payment = await Payment.create({totalHarga: jumlah, status, UserId: id, OrderId: order.id})
             
-
+            const data = await Payment.findByPk(payment.dataValues.id, {include: Order})
             console.log('ini data', data);
-            res.status(201).json({ message: 'Order berhasil dibuat', data })
+
+            res.status(201).json({ message: 'Order Payment berhasil dibuat', data })
         } catch (error) {
             console.log('ini error ==============================================');
             console.log(error);
