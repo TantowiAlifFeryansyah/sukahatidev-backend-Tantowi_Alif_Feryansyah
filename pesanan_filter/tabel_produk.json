@@ -1,0 +1,64 @@
+[
+    {
+        "Nama Produk": "Karkas",
+        "Klasifikasi": "0.4 - 0.7",
+        "Tipe": "Ayam Utuh",
+        "Satuan": "Ekor",
+        "Konstanta Pengali": 0.7,
+        "Harga per kg": 43500
+    },
+    {
+        "Nama Produk": "Karkas",
+        "Klasifikasi": "0.7 - 1.2",
+        "Tipe": "Ayam Utuh",
+        "Satuan": "Ekor",
+        "Konstanta Pengali": 1.2,
+        "Harga per kg": 41600
+    },
+    {
+        "Nama Produk": "Karkas",
+        "Klasifikasi": "1.2 - 1.5",
+        "Tipe": "Ayam Utuh",
+        "Satuan": "Ekor",
+        "Konstanta Pengali": 1.5,
+        "Harga per kg": 40500
+    },
+    {
+        "Nama Produk": "Ati Ampela",
+        "Klasifikasi": "Bersih",
+        "Tipe": "Ekses",
+        "Satuan": "pcs",
+        "Konstanta Pengali": 0.2,
+        "Harga per kg": 22500
+    },
+    {
+        "Nama Produk": "Ati Ampela",
+        "Klasifikasi": "Kotor",
+        "Tipe": "Ekses",
+        "Satuan": "pcs",
+        "Konstanta Pengali": 0.2,
+        "Harga per kg": 21500
+    },
+    {
+        "Nama Produk": "Boneless",
+        "Klasifikasi": "Dada",
+        "Tipe": "Ayam Parting",
+        "Satuan": "kg",
+        "Harga per kg": 53500
+    },
+    {
+        "Nama Produk": "Boneless",
+        "Klasifikasi": "Paha",
+        "Tipe": "Ayam Parting",
+        "Satuan": "kg",
+        "Harga per kg": 51500
+    },
+    {
+        "Nama Produk": "Paha Utuh",
+        "Klasifikasi": "",
+        "Tipe": "Ayam Parting",
+        "Satuan": "kg",
+        "Harga per kg": 43100
+    }
+    
+]

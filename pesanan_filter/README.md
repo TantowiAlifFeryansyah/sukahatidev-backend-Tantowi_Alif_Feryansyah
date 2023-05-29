@@ -1,5 +1,7 @@
 # API Documentation
 
+
+
 ## Endpoints:
 - `router.post('/register', controller.register)`
 - `router.post('/login', controller.login')`
