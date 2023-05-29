@@ -75,9 +75,9 @@ class Controller {
             const order = await Order.create({ ProdukId, qty, jumlah });
             const { id } = req.user
             const status = 'unpaid'
-            const payment = await Payment.create({totalHarga: jumlah, status, UserId: id, OrderId: order.id})
-            
-            const data = await Payment.findByPk(payment.dataValues.id, {include: Order})
+            const payment = await Payment.create({ totalHarga: jumlah, status, UserId: id, OrderId: order.id })
+
+            const data = await Payment.findByPk(payment.dataValues.id, { include: Order })
             res.status(201).json({ message: 'Order & Payment successfully created', data })
         } catch (error) {
             next(error)
@@ -98,8 +98,6 @@ class Controller {
             next(error)
         }
     }
-
-
 }
 
 module.exports = Controller;
