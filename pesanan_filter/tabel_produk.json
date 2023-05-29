@@ -44,6 +44,7 @@
         "Klasifikasi": "Dada",
         "Tipe": "Ayam Parting",
         "Satuan": "kg",
+        "Konstanta Pengali": null,
         "Harga per kg": 53500
     },
     {
@@ -51,6 +52,7 @@
         "Klasifikasi": "Paha",
         "Tipe": "Ayam Parting",
         "Satuan": "kg",
+        "Konstanta Pengali": null,
         "Harga per kg": 51500
     },
     {
@@ -58,6 +60,7 @@
         "Klasifikasi": "",
         "Tipe": "Ayam Parting",
         "Satuan": "kg",
+        "Konstanta Pengali": null,
         "Harga per kg": 43100
     }
     
